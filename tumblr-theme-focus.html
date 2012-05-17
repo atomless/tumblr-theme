@@ -1,0 +1,921 @@
+<!--[if lt IE 9]><html lang="en"class="ie"><![endif]-->
+<!--[if (IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		
+		<title>{Title} - {block:SearchPage}{lang:Search results for SearchQuery}{/block:SearchPage}{block:PostSummary}{PostSummary}{/block:PostSummary}</title>
+		{block:Description}
+		<meta name="description" content="{MetaDescription}">
+		{/block:Description}
+		
+		<meta name="publisher" content="James Tindall">
+		<meta name="author" content="James Tindall">
+		<meta name="Reply-To" content="james@atomless.com">
+		
+		<!-- Theme Variables -->
+		<!-- URLS -->
+		<meta name="text:Base Url" content="http://ramblings.jamestindall.info/">
+		<!-- Colors -->
+		<meta name="color:MainHeadingColour" content="#000">
+		<meta name="color:MainTextColour" content="#555">
+		<meta name="color:TagColour" content="#cfcfcf">
+		<meta name="color:SideHeadingColour" content="#444">
+		<meta name="color:SideTextColour" content="#a0a0a0">
+		<meta name="color:TrimColour" content="#eee">
+		<meta name="color:HoverColour" content="#000">
+		<meta name="color:ButtonColour" content="#777">
+		<!-- Show/Hide-->
+		<meta name="if:Show Post Type" content="0">
+		<meta name="if:Show Post Date" content="1">
+		<meta name="if:Show Permalink" content="1">
+		<meta name="if:Show Tweet Post" content="0">
+		<meta name="if:Show Reblog Post" content="1">
+		<meta name="if:Show Post Notes" content="1">
+		<meta name="if:Hide Tumblr Controls" content="1">
+		<meta name="if:Enable Pre Code Support" content="1">
+		<meta name="if:Show Read Later" content="1">
+		<meta name="if:Show Recent Tweet" content="1">
+		<!-- Info -->
+		<meta name="text:Google Analytics ID" content="UA-6189585-1">
+		<meta name="text:Email Address" content="james@atomless.com">
+		<meta name="text:Twitter Profile" content="atomless">
+		<meta name="text:Google Profile" content="101852146459255883909">
+		<meta name="text:Flickr ID" content="atomless">
+		
+		<!-- Mobile -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
+		<meta name="apple-touch-fullscreen" content="YES">
+		<meta http-equiv="imagetoolbar" content="false">
+		
+		{block:PermalinkPage}
+			{block:Posts}
+				{block:Date}
+		<link rel="canonical" href="{Permalink}">
+		<link rel="shortlink" href="{ShortURL}">
+				{/block:Date}
+			{/block:Posts}
+		{/block:PermalinkPage}
+		
+		<link rel="profile" href="http://microformats.org/profile/hatom">
+		<link rel="profile" href="http://microformats.org/profile/hcard">
+		<link rel="profile" href="http://microformats.org/profile/hcalendar">
+		<link rel="profile" href="http://microformats.org/profile/rel-license">
+		
+		<link rel="archive" type="text/html" title="Archive" href="{text:Base Url}archive">
+		<link rel="search" type="text/html" title="Search" href="{text:Base Url}?q=">
+		
+		<!-- Fonts -->
+		<link href="http://fonts.googleapis.com/css?family=Droid+Sans:400" rel="stylesheet" type="text/css">
+		<link href="http://jamestindall.info/assets/fonts/icomoon-selected/stylesheet.css?v=10" rel="stylesheet" type="text/css">
+		
+		<!-- Icons -->
+		<link rel="shortcut icon" href="{Favicon}" type="image/x-icon">
+		<link rel="apple-touch-icon" href="http://jamestindall.info/assets/images/apple-touch-icon.png">
+		<link rel="apple-touch-icon-precomposed" href="http://jamestindall.info/assets/images/apple-touch-icon.png">
+		<!-- Feed -->
+		<link rel="alternate" type="application/rss+xml" title="{Title}" href="{text:Base Url}rss">
+		
+		<style type="text/css">
+			body,div,h1,h2,h3,h4,h5,h6,p,blockquote,pre,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,th,td,article,aside,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0;border:0;}
+			ul,ol{list-style:none;}
+			article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,audio,canvas,video,menu,time{display:block;}
+			html{height:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
+			body{height:100%;font-size:100%;font-size:0.9375em;line-height:1.6em;font-family:'Droid Sans','Helvetica Neue',Arial,sans-serif;font-weight:400;background:#fefefe;-webkit-tap-highlight-color:rgba(255, 253, 180, 0.95);}
+			.icons span{font-family:'IcoMoonRegular';}
+			sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}
+			sup{top:-0.5em;}
+			sub{bottom:-0.25em;}
+			pre{white-space:pre;}
+			b,strong{font-weight:bold;}
+			abbr[title]{border-bottom:1px dotted;}
+			table{border-collapse:collapse;border-spacing:0;}
+			a img,img{-ms-interpolation-mode:bicubic;border:0;}
+			img{max-width:100%;width:100%;height:auto;}
+			input,textarea,button,select{margin:0;font-size:100%;line-height:normal;vertical-align:baseline;}
+			button,html input[type="button"],input[type="reset"],input[type="submit"]{cursor:pointer;-webkit-appearance:button;}
+			input[type="checkbox"],input[type="radio"]{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-o-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box;}
+			textarea{overflow:auto;}
+			::selection{background:rgba(250,240,0,0.3);color:#000}
+			::-moz-selection{background:rgba(250,240,0,0.3);color:#000}
+			img::selection{background:{color:HoverColour};}
+			img::-moz-selection{background:{color:HoverColour};}
+
+			h1,h2,h3,h4,h5,h6{font-family:'Droid Sans','Helvetica Neue',Arial,sans-serif;font-weight:400;color:{color:MainHeadingColour};}
+			h1{font-size:2.6em;line-height:1.5em;color:{color:MainHeadingColour};margin-bottom:0.583em;}
+			h1 a, h2 a, h3 a, h4 a, h5 a, h6 a{color:{color:MainHeadingColour};font-weight:400;text-decoration:none;}
+			h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover{color:{color:HoverColour};border-bottom:1px dotted {color:HoverColour};}
+			h2 {font-size: 2.133em;line-height: 1.25em;margin-bottom: 0.656em;}
+			h3 {font-size: 1.867em;line-height: 1.286em;margin-bottom: 0.75em;}
+			h4 {font-size: 1.6em;line-height: 1.25em;margin-bottom: 0.875em;}
+			h5 {font-size: 1.333em;line-height: 1.286em;margin-bottom: 1.05em;}
+			h6 {font-size: 1em;line-height: 1.4em;margin-bottom: 1.4em;}
+			
+			.small {font-size:0.733em;}
+			
+			p{color:{color:MainTextColour};font-weight:400;font-family:'Droid Sans','Helvetica Neue',Arial,sans-serif;margin-bottom:1.4em;}
+			a{color:{color:MainHeadingColour};text-decoration:none;border-bottom:1px dotted #bbb;transition:all .3s linear;-o-transition:all .3s linear;-moz-transition:all .3s linear;-webkit-transition:all .3s linear;}
+			.post > a{border:none;}
+
+			a:hover{cursor:pointer;color:{color:HoverColour};background-color:rgba(255, 253, 180, 0.95);}
+			aside h1 a:hover, .pages a:hover, #pagination a:hover, #pagination a, a.view:hover, a.view{border-bottom:none;background-color:transparent;}
+			p a{white-space:nowrap;}
+			a.image-link{border-bottom:none;}
+			
+			.post ul {list-style-type: disc; margin-bottom:1.4em;list-style-position: inside;}
+			.post ul li {color:{color:MainTextColour};}
+			.post ol {list-style-type: decimal; margin-bottom:1.4em;list-style-position: outside;}
+			.post ol li {color:{color:MainTextColour};}
+			
+			blockquote, body #posts .video .content p {border-left:3px solid #eee; padding-left:1.4em;margin-bottom:1.4em;}
+			blockquote, blockquote *, p.tweet, body #posts .video .content p{font-family: "Georgia",serif;font-style: italic;color:#333 !important;}
+			blockquote, p.tweet, body #posts .video .content p{font-size: 1.25em;line-height: 1.6em;}
+			p.tweet{color:{color:MainHeadingColour} !important;}
+			code, pre {font-family:monospace,monospace; font-size:0.95em;color:{color:MainHeadingColour};}
+			
+			input{border:none;color:#ddd;}
+			input[type=search]{-moz-appearance:textfield;-webkit-appearance:none;border:none;}
+			::-webkit-input-placeholder{color:transparent;}
+			input:-moz-placeholder{color:#444444;}
+			input:hover::-webkit-input-placeholder{color:#aaa;}
+			input:hover:-moz-placeholder{color:#aaa;}
+			input:focus::-webkit-input-placeholder{color:transparent;}
+			input:focus:-moz-placeholder{color:transparent;}
+			
+			/*===========================
+			MAIN LAYOUT 
+			=============================*/
+			
+			body > section{height:100%;width:100%;max-width:85em;margin:0 auto;position:relative;overflow:visible;}
+			article{padding-right:16.085em;min-height:100%;margin:0;border-left:1px solid #fefefe;position:static;overflow:auto;}
+			
+			article > header{height:2.5em;width:100%;display:block;float:left;overflow:hidden;position:relative;z-index:100;background-color:#fefefe;border-bottom:1px solid #fefefe;}
+			aside{position:absolute;top:0px;right:0px;min-height:100%;width:12.085em;padding:0 2em;background-color:#f9f9f9;z-index:101;border:1px solid #f9f9f9;margin-right:-2px;}
+			
+			#posts{padding-top:3.2em;position:relative;margin-left:0.05em;}
+			#posts .post {position:relative;overflow:hidden;display:block;padding-top:3.5em;padding-bottom:2.1em;}
+			#posts li.post:after{content:'------';color:#eee;display:block;position:absolute;width:100%;text-align:center;bottom:2px;left:0px;letter-spacing:.25em;line-height:1px;height:1px;}
+			
+			#posts .post:first-child{padding-top:4.4em;overflow:visible;}
+			#posts .post:first-child .details{top:4.9em !important;}
+			#posts .post:first-child:before{content:'·';width:100%;display:block;text-align:center;font-size:2.333em;color:#ccc;position:absolute;top:.7em;left:0;}
+			#posts li.last-post{box-shadow:none;padding-bottom:6em;}
+			body #posts li.last-post:after{content:'·';width:100%;display:block;text-align:center;font-size:2.333em;color:#ccc;position:absolute;bottom:1em;left:0;}
+			
+			#posts .post .content, #posts .tags, #posts .notes, .search-wrapper form, #pagination ul {width:50%;margin-left:auto;margin-right:auto;max-width:34em;}
+			#posts .details{width:25%;}
+			#posts .details li a span{opacity:0;}
+			
+			#posts .post .content p{overflow:hidden;text-overflow:ellipsis;}
+
+			/*===========================
+			SEARCH 
+			=============================*/
+			.search-wrapper form{display:block;font-size:inherit;background-color:#444;position:static;height:2.5em;}
+			.search-wrapper form fieldset{position:relative;}
+			input[type="search"]{position:relative;width:100%;background-color:#444;border:none;outline:none;text-indent:2.5em;padding:.75em 0 .75em 0em;}
+			input[type="search"]:hover{background-color:#000;}
+			input[type="search"]:focus{background-color:rgb(255, 253, 180);color:#222;}
+			
+			.search-wrapper form fieldset:after{content:'*';display:block;font-family:'IcoMoonRegular';font-size:1em;color:#aaa;position:absolute;left:.75em;top:.6em;}
+			
+			input[type="search"]::-webkit-search-decoration{-webkit-appearance: none;}
+			
+			input[type="search"]::-webkit-search-cancel-button{}
+
+			input[type="search"]::-webkit-search-results-button,
+			input[type="search"]::-webkit-search-results-decoration{-webkit-appearance: none;}
+			
+			/*===========================
+			ASIDE 
+			=============================*/
+			.avatar-wrapper{width:100%;}
+			#avatar{width:80px;height:80px;display:block;margin:3em auto 1em auto;opacity:0.8;}
+			
+			aside > * {margin-bottom:2.8em;}
+			aside > #services{margin-bottom:1.8em;}
+			aside h1 a {color:{color:SideHeadingColour};}
+			aside h1{font-size:1.24em;line-height:1.2857142857142858em;color:{color:SideHeadingColour};text-transform:uppercase;margin-top:0 !important;margin-bottom:0.75em;white-space:nowrap;}
+			aside h3{font-size:1em;line-height:1.2857142857142858em;color:{color:SideHeadingColour};text-transform:uppercase;margin-top:0 !important;margin-bottom:0.75em;}
+			aside p, aside h2{font-size:0.8666666666666667em;color:{color:SideTextColour};clear:both;}
+
+			aside .pages ul li{font-size:0.8666666666666667em;margin-bottom:.5em;}
+			aside .pages ul li:last-child{margin-bottom:0em;}
+			aside .pages ul li a{padding:.3em 0;display:block;color:{color:SideTextColour};text-decoration:none;border-bottom:none;}
+			aside .pages ul li a:hover{color:{color:SideHeadingColour};border-bottom:none;transition:all .3s linear;-o-transition:all .3s linear;-moz-transition:all .3s linear;-webkit-transition:all .3s linear;}
+			aside .pages ul li a span{padding-right:1em;width:1em;font-size:1.183333333em;}
+			aside .pages ul li:first-child a span{font-size:1.25em;}
+			
+			aside #section_nav a.current{background-color:rgba(0,0,0,0.7);width:16.154em;position:relative;padding-left:2.5em;margin-left:-2.4em;color:#ccc;}
+			aside #section_nav a.current:before{content:' ';display:block;position:absolute;left:0px;top:0px;margin-left:-2.537em;background-color:transparent;width:0em;height:0em;border:1.3em solid rgba(255, 250, 100, 0.8);border-top-color:transparent;border-bottom-color:transparent;border-left-color:transparent;}
+			aside #section_nav a.current:hover,aside #section_nav a.current:before:hover{color:#eee;}
+
+			aside .pages .links{overflow:hidden;width:14.2em;margin-left:-.5em;}
+			aside .pages .links li{float:left;display:block;margin:0;pointer-events:auto;text-decoration:none;background:transparent;text-align:center;}
+			aside .pages .links li a{cursor:pointer;padding:0em;width:3.31em;height:3.31em;display:block;position:relative;text-decoration:none;outline:0;border:none;background-color:transparent;font-size:0.7333333333333333em;color:{color:SideTextColour};}
+			aside .pages .links li a span{display:block;padding:0px;width:1em;height:1em;margin:0;position:absolute;top:.5em;left:.5em;overflow:visible;}
+			aside .pages .links li a.instapaper span{font-family:'Times', serif !important;font-weight:bold;font-size:1.4em;}
+			aside .pages .links li a.icons{font-size:1.23em;}
+			aside .pages .links li:hover,aside .links li:hover a{cursor:pointer;cursor:hand;color:#777;background-color:transparent;}
+			aside .pages .links li:active{cursor:pointer;cursor:hand;}
+			
+			aside p.license, aside .license a{color:{color:TagColour} !important; border-bottom:none !important;position:relative;}
+			aside p.license a{padding-left:2em;}
+			aside p.license a span {font-size:1.5em;line-height:0.733em;position:absolute;top:0em;left:0;}
+			
+			
+			/*===========================
+			POST CONTENTS 
+			=============================*/
+			#posts .link h1 a{border-bottom:1px dotted {color:MainHeadingColour};}
+			#posts .link h1 a:hover{color:{color:HoverColour};border-bottom:1px dotted {color:HoverColour};}
+			#posts .chat ul {list-style:none;}
+			#posts .chat li{margin-bottom:1.4em;}
+			#posts .chat li .label{font-weight:700;}
+			#posts .chat li.odd{color:{color:MainHeadingColour};}
+			#posts .chat li.even{color:{color:MainTextColour};}
+			#posts .photo img{margin-bottom:1.4em;}
+
+			#posts .photo p a:hover{color:{color:HoverColour};border-bottom:1px dotted {color:HoverColour};}
+			#posts .video .fluid-width-video-wrapper iframe{width:99.9%;height:57%;display:block;margin-bottom:2.4em;}
+
+
+			#posts .audio img{-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;margin-bottom:1.4em;}
+			#posts .audio .audio_player{-webkit-border-radius:30px;-moz-border-radius:30px;border-radius:30px;margin-bottom:1.4em;background:#e4e4e4;height:2.1333333333333333em;}
+			#posts .audio .audio_player embed{margin-left:12.8em;margin-top:0.2em;}
+			#posts .audio p a:hover{color:{color:HoverColour};border-bottom:1px dotted {color:HoverColour};}
+			
+			#posts .quote h1:before{content:'"';color:{color:TrimColour};margin-left:-0.3em;}
+			#posts .quote h1:after{content:'"';color:{color:TrimColour};margin-right:-0.3em;}
+			
+			#posts .notes {list-style:none;padding-top:1.4em;margin-top:1.4em;float:none;overflow:hidden;clear:both;border-top:1px solid {color:TrimColour};margin-bottom:1.4em;}
+			#posts .notes li {width:100%;margin-bottom:0.7em;display:block;color:{color:TagColour};font-size:0.733em;}
+			#posts .notes li .action a{color:{color:TagColour}; border-bottom:1px dotted {color:TagColour};text-decoration:none}
+			#posts .notes li a {border-bottom:none;}
+			#posts .notes li a:hover {color:{color:HoverColour};border-bottom:1px dotted {color:HoverColour};}
+			#posts .notes li a img {width:auto;vertical-align:middle;margin-right:0.7em;margin-bottom:0;}
+			#posts .notes li blockquote {margin:0.7em 0 0;}
+			
+			/*===========================
+			TAGS 
+			=============================*/
+			#posts .tags{padding:0;display:block;text-indent:0em;list-style:none;overflow:hidden;}
+			#posts .tags li {float:left;}
+			#posts .tags li a {color:{color:TagColour}; font-size:0.733em; border-bottom:1px dotted {color:TagColour}; margin-right:10px;}
+			#posts .tags li a:before {content:"#";}
+			#posts .tags li a:hover {color:{color:HoverColour}; font-size:0.733em; border-bottom:1px dotted {color:HoverColour};}
+			#posts .tags li.noteslabel a:before,#posts .tags li.postdate a:before{content:'';}
+			#posts .tags li.postdate a time{display:inline;}
+			#posts .tags li.noteslabel:after,#posts .tags li.postdate:after{content:'·';padding:0 10px 0 0;color:{color:TagColour};}
+			
+			/*===========================
+			POST DETAILS AND ACTION BUTTONS 
+			=============================*/
+			#posts .details{overflow:hidden;opacity:0;width:25%;margin:0;padding:0;display:block;text-indent:0em;list-style:none;position:absolute;left:0px;top:4em;transition:all .3s linear;-o-transition:all .3s linear;-moz-transition:all .3s linear;-webkit-transition:all .3s linear;}
+			#posts .photo .details, #posts .video .details {top:4em;}
+			#posts .details li{overflow:hidden;position:relative;border-right:1px dotted #DDD;display:block;clear:both;padding-bottom:0.5em;margin:0 3em 0 0 !important;}
+			#posts .photo .details li, #posts .video .details li{border-right:none;}
+			#posts .details li:last-child{padding-bottom:0px;}
+			#posts .details li a{display:block;padding:0 4em 0 0.5333333333333333em;overflow:hidden;text-overflow:ellipsis;-webkit-text-overflow:ellipsis;text-decoration:none;font-size:0.7333333333333333em;color:transparent;text-transform:capitalize;border:none;text-align:right;white-space:nowrap;line-height:2.5em;}
+			
+			#posts .photo .details li a, #posts .video .details li a{background:rgba(240,240,240,0.7);}
+			#posts .details li a span{text-transform:capitalize;text;overflow:hidden;text-overflow:ellipsis;-webkit-text-overflow:ellipsis;white-space:nowrap;}
+			#posts .details li a:hover,#posts .details li a:active{background:rgba(255, 253, 180, 0.95);color:{color:HoverColour};}
+			#posts .details li a:before{font-family:'IcoMoonRegular';margin-left:0.13333333333333333em;margin-right:1em;text-transform:none;font-size:1.3em;position: absolute;right: 0px;vertical-align: middle;color:{color:TagColour};}
+			#posts .photo .details li a:before, #posts .video .details li a:before{color:{color:MainTextColour};}
+			#posts .post:hover .details, #posts .hover-touched .details{opacity:1;}
+			#posts .photo .details li a:before {color:#555;}
+			#posts .details li a:hover:before{color:#555;}
+			#posts .details li a.tag:before{content:'#';font-family:'Droid Sans','Helvetica Neue',Arial,sans-serif;}
+			#posts .details li a.date:before{content:'4';}
+			#posts .details li a.tweetlink:before{content:'#';font-size:1.5em;margin-right:.8em;}
+			#posts .details li a.reblog:before{content:'r';}
+			#posts .details li a.like:before{content:'1';}
+			#posts .details li a.permalink:before{content:'∞';font-family:'Helvetica';margin-right:.7em;font-size:1.9em;}
+			#posts .details li a.readlater:before{content:'I';font-family:'Times';font-weight:bold;margin-right:1em;font-size:1.6em;}
+			.has0notes{display:none;}
+			.liked:before {color:#555 !important;}
+			
+			/*===========================
+			PAGINATION
+			=============================*/
+			
+			#pagination ul{background-color:#333;padding:2em 0 4em 0;height:2em;z-index:10;border:none;overfow:hidden;display:block;text-align:center;}
+			#pagination li{min-height:0;text-decoration:none;text-align:center;margin-left:0.6666666666666666em;margin-right:0;display:inline;}
+			#pagination li a{color:#ddd;text-decoration:none;outline:0;font-size:2em;margin:0 auto;display:block;}
+			#pagination li a.next{float:none;}
+			#pagination li a.next span{display:block;}
+			#pagination li a.prev{float:none;}
+			#pagination li a.prev span{display:block;}
+			#pagination li:hover{cursor:pointer;cursor:hand;}
+			#pagination li:hover a{color:#fff;}
+			
+			/*===========================
+			INFINITE SCROLLING
+			=============================*/
+			#nfscrl{display:block;height:2em;}
+			#nfscrl img{margin:0 auto;display:block;width:32px;height:32px;}
+			
+			/*===========================
+			Viewport sensitive layout
+			=============================*/
+				
+			@media screen and (min-width: 0em){
+				#posts .post .content,#posts .tags, #posts .notes, .search-wrapper form, #pagination ul{width:80%;}
+				#posts .details{width:10%;min-width:2em;}
+				#posts .details li{margin:0 1em 0 0 !important;}
+			}
+			
+			@media screen and (min-width: 55em){
+				#posts .post .content,#posts .tags, #posts .notes, .search-wrapper form, #pagination ul{width:70%;}
+				#posts .details{width:15%;}
+			}
+			
+			@media screen and (min-width: 75em){
+				#posts .post .content,#posts .tags, #posts .notes, .search-wrapper form, #pagination ul{width:60%;}
+				#posts .details{width:20%;}
+				#posts .details li:before{content:' ';display:block;width:1em;height:0em;border:0.935em solid transparent;border-left-color:#fefefe;position:absolute;left:0;top0;}
+				#posts .video .details li:before{display:none;}
+			}
+			
+			@media screen and (min-width: 80em){
+				#posts .post .content,#posts .tags, #posts .notes, .search-wrapper form, #pagination ul{width:50%;}
+				#posts .details{width:25%;}
+				#posts .details li a span{opacity:1;}
+				#posts .details li{margin:0 3em 0 0 !important;}
+			}
+			
+			@media screen and (min-width: 1440px) and (min-height: 932px){
+				aside{position:fixed;top:40px;right:40px;margin-right:0px;}
+				#posts .post:first-child{padding-top:7.1em;}
+				#posts .post:first-child .details{top:7.6em !important;}
+			}
+			
+
+			#tumblr_controls{display:none !important;}
+
+			{CustomCSS}
+		</style>
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<script src="http://jamestindall.info/assets/js/libs/LAB.min.js"></script>
+	</head>
+
+	<body lang="en">
+
+		<section class="{block:IndexPage}page-index{/block:IndexPage}{block:PermalinkPage}page-permalink{/block:PermalinkPage}{block:SearchPage}page-search{/block:SearchPage}">
+			<article>
+			
+				<header role="banner">
+					<div class="search-wrapper">
+						<form action="/search" role="search" method="get">
+							<fieldset><input type="search" results="5" autosave="atomless_search" class="search-field" name="q" placeholder="Search the {Description} ..." value="{SearchQuery}{block:TagPage}{Tag}{/block:TagPage}"></fieldset>
+						</form>
+					</div>
+				</header>
+				
+				<ol id="posts" class="hfeed">
+				{block:NoSearchResults}
+					<li class="hentry post">
+						<section class="content">
+							<h1>Erk! Nothing Found There.</h1>
+						</section>
+					</li>
+				{/block:NoSearchResults}
+				
+				{block:Posts}
+					<li class="hentry post {PostType}" id="{PostID}">
+						{block:Quote}
+						<section class="content">
+							<h1>{Quote}</h1>
+							{block:Source}
+							<p>{Source}</p>
+							{/block:Source}
+						</section>
+						{/block:Quote}
+						
+						
+						{block:Photo}
+						<a href="{PhotoURL-250}" title="{PhotoAlt}" class="view" rel="{PostID}" >
+							<img src="{PhotoURL-250}" data-250="{PhotoURL-250}" data-400="{PhotoURL-400}" data-500="{PhotoURL-500}" data-1280="{block:HighRes}{PhotoURL-HighRes}{/block:HighRes}">
+						</a>
+						<section class="content">
+						{block:Caption}
+							{Caption}
+						{/block:Caption}
+						</section>
+						{/block:Photo}
+						
+						
+						{block:Text}
+						<section class="content">
+							{block:Title}
+							<h1>{Title}</h1>
+							{/block:Title}
+							{Body}
+						</section>
+						{/block:Text}
+						
+						
+						{block:Chat}
+						<section class="content">
+							{block:Title}
+							<h1>{Title}</h1>
+							{/block:Title}
+							<ul class="chat">
+							{block:Lines}
+								<li class="{Alt} user_{UserNumber}">
+									{block:Label}
+										<span class="label">{Label}</span>
+									{/block:Label}
+									{Line}
+								</li>
+							{/block:Lines}
+							</ul>
+						</section>
+						{/block:Chat}
+						
+						
+						{block:Link}
+						<section class="content">
+							<h1><a href="{URL}" {Target}>{Name}</a></h1>
+							{block:Description}
+							{Description}
+							{/block:Description}
+						</section>
+						{/block:Link}
+						
+						
+						{block:Video}
+						<div class="fluid-width-video-wrapper">
+							{Video-500}
+						</div>
+						<section class="content">
+							{block:Caption}
+							{Caption}
+							{/block:Caption}
+						</section>
+						{/block:Video}
+						
+						
+						{block:Audio}
+						<section class="content">
+							{block:AlbumArt}
+							<img src="{AlbumArtURL}">
+							{/block:AlbumArt}
+							{AudioPlayerGrey}
+							{block:TrackName}
+							<p>Track: <a href="{Permalink}">{TrackName}</a></p>
+							{/block:TrackName}
+							{block:ExternalAudio} 
+							<p>Download: <a href="{ExternalAudioURL}">{ExternalAudioURL}</a>
+							{/block:ExternalAudio}
+							{block:Caption}
+							{Caption}
+							{/block:Caption}
+						</section>
+						{/block:Audio}
+						
+						
+						<ul class="details">
+							{block:IfShowPostType}
+							<li><a href="/tagged/{PostType}/chrono" class="{PostType}"><span>{PostType}</span></a></li>
+							{/block:IfShowPostType}
+							
+							{block:IfShowPermalink}
+							<li><a href="{Permalink}" class="permalink"><span>Permalink</span></a></li>
+							{/block:IfShowPermalink}
+							
+							{block:IfShowReblogPost}
+							<li><a class="reblog" data-id="{PostID}" href="{ReblogURL}"><span>Reblog</span></a></li>
+							{/block:IfShowReblogPost}
+							
+							{block:IfShowTweetPost}
+							<li><a class="tweetlink" href='http://twitter.com/share?original_referer={Permalink}&url={ShortURL}&text={Title} /by @atomless' target="_blank" rel="{Permalink}"><span>Tweet</span></a></li>
+							{/block:IfShowTweetPost}
+							
+							{block:IfShowReadLater}
+							<li><a class="readlater" href="http://www.instapaper.com/text?u={URLEncodedPermalink}"><span>Read Later</span></a></li>
+							{/block:IfShowReadLater}
+							
+							<li><a class="like" data-id="{PostID}" href="#"><span>Like</span></a></li>
+							
+						</ul>
+
+
+						{block:HasTags}
+						<ul class="tags">
+							{block:IfShowPostDate}
+							{block:Date}
+							<li class="postdate"><a href="{Permalink}" class="date">{block:Date}<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}Z">{TimeAgo}</time>{/block:Date}</a></li>
+							{/block:Date}
+							{/block:IfShowPostDate}
+							{block:NoteCount}
+							<li class="noteslabel has{NoteCount}notes"><a href="{Permalink}#notes">{NoteCountWithLabel}</a></li>
+							{/block:NoteCount}
+							{block:Tags}
+							<li><a href="{TagURL}" title="{lang:Tagged with} {Tag}"><span>{Tag}</span></a></li>
+							{/block:Tags}
+						</ul>
+						{/block:HasTags}
+						
+						
+						{block:IfShowPostNotes}
+							{block:Permalink}
+								 {block:Date}	
+									 {block:PostNotes}
+						<a href="#notes" id="notes"></a>
+						{PostNotes}
+									 {/block:PostNotes}
+								 {/block:Date}
+							{/block:Permalink}
+						{/block:IfShowPostNotes}
+					
+					
+					</li>
+				{/block:Posts}
+				
+				{block:Pagination}
+					<li id="pagination">
+						<ul>
+							{block:PreviousPage}
+							<li>
+								<a class="prev icons" href="{PreviousPage}"><span>&lt;</span></a>
+							</li>
+							{/block:PreviousPage}
+							{block:NextPage}
+							<li>
+								<a class="next icons" href="{NextPage}"><span>&gt;</span></a>
+							</li>
+							{/block:NextPage}
+							<div id="nfscrl" style="opacity:0;"><img src="http://jamestindall.info/assets/images/loading.gif?v=3"></div>
+						</ul>
+					</li>
+				{/block:Pagination}
+					
+				</ol>
+
+				
+			</article>
+				
+			<aside>
+
+				<section class="description vcard">
+					<p class="avatar-wrapper"><img id="avatar" src="http://jamestindall.info/assets/images/atomless-pavatar-1998.gif"></p>
+					<h1><a href="{text:Base Url}" rel="home" class="url">RAMBLINGS & NOISE</a></h1>
+					<p>A blog and a lifestream by<br><span class="uid fn name">James Tindall</span>.</p>
+
+					<p>You can contact me by <a href="mailto:james@atomless.com" title="email" class="email" title="james@atomless.com">email</a> or maybe just <a href="{text:Base Url}ask/">ask a question</a>.</p>
+				</section>
+				
+				<section class="pages" id="section_nav">
+					<h3>Sections</h3>
+					<ul>
+						<li><a rel="me" href="http://ramblings.jamestindall.info/" class="icons current"><span>/</span> Blog</a></li>
+						<li><a rel="me" href="http://noise.jamestindall.info/" class="icons"><span>7</span> Lifestream</a></li>
+					</ul>
+				</section>
+				
+				<section class="pages">
+					<h3>Elsewhere</h3>
+					<ul>
+						<li><a rel="me" href="http://www.flickr.com/photos/atomless/sets/" class="icons"><span>%</span> Flickr Sets</a></li>
+						<li><a rel="me" href="http://atomless.com/" class="icons"><span>6</span> Folio Site 1998 to 2005</a></li>
+					</ul>
+				</section>
+				
+				<section class="pages" id="services">
+					<h3>AND … </h3>
+					<ul class="links">
+						<li><a rel="me" href="http://twitter.com/#!/atomless" class="icons" title="twitter"><span>#</span></a></li>
+						
+						<li><a rel="me" href="http://www.instapaper.com/starred/rss/520347/seeq1ZvJDN4UdQrnP89aDM1xKOY" class="icons instapaper" title="Articles I have liked on Instapaper"><span>I</span></a></li>
+						
+						<li><a rel="me" href="https://github.com/atomless" class="icons" title="github"><span>g</span></a></li>
+						
+						<li><a rel="me" href="http://www.youtube.com/user/atomless/feed" class="icons" title="youtube"><span>y</span></a></li>
+						
+						<li><a rel="me" href="http://www.last.fm/user/j-i-m-m-e-r" class="icons" title="lastfm"><span>l</span></a></li>
+						
+						<li><a rel="me" href="http://soundcloud.com/james-tindall" class="icons" title="soundcloud"><span>s</span></a></li>
+						
+						<li><a rel="me" href="https://plus.google.com/101852146459255883909" class="icons" title="Google +"><span>p</span></a></li>
+						
+						<li><a rel="me" href="http://www.vimeo.com/atomless" class="icons" title="vimeo"><span>v</span></a></li>
+					</ul>
+				</section>
+				
+				{block:IfShowRecentTweet}
+				<section class="twitter-feed">
+					<h3>Latest From Twitter</h3>
+					<div class="tweets"></div>
+				</section>
+				{/block:IfShowRecentTweet}
+				
+				<section class="pages">
+					<p class="license small"><a rel="external license" class="icons" href="http://creativecommons.org/licenses/by-sa/3.0/"><span>c</span></a> Attribution & Share Alike License</p>
+				</section>
+
+			</aside>
+			
+		</section>
+		
+		<iframe id="like-it" style="display:none"></iframe>
+	</body>
+	<script type="text/javascript">
+	/* <![CDATA[ */
+	
+	/*
+	------------------------------
+	Ramblings & Noise Javascript
+	------------------------------
+	+ http://jamestindall.info/
+	+ version 1
+	+ Copyright 2012 James Tindall
+	+ Licensed under the MIT license
+	*/
+	
+	jt = {};
+	jt.debugging = false;
+	
+	
+	{block:IfGoogleAnalyticsID}
+	/*===========================
+	ANALYTICS ACCOUNT
+	=============================*/
+	var _gaq = _gaq || [];
+	_gaq = [['_setAccount', '{text:Google Analytics ID}'], ['_trackPageview']];
+	_gaq.push(['_setDomainName', '.jamestindall.info']);
+	{/block:IfGoogleAnalyticsID}
+	
+	/*===========================
+	GENERAL UTILITY FUNCTIONS
+	=============================*/
+	function debug(msg){
+		if (jt.debugging){
+			if ((typeof console) === 'object'){
+				console.log('*fnctn : ' +arguments.callee.caller.name + ' : ')
+				console.log(msg);
+			}
+		}
+	}
+	
+	/*===========================
+	DYNAMIC LAYOUT
+	=============================*/
+	
+	jt.repositionLayout = function(e){
+		
+		var section_offset = $('body > section').offset(),
+			section_r = (section_offset.left + $('body > section').width()),
+			r,
+			h = $(window).height()-80;
+			
+		if($(window).width() >= 1440){
+			r = 40;//
+		}else{
+			r = Math.max(0, ($(window).width() - (section_r + 2)));
+		}
+		
+		if ($(window).height() >= 920 && $(window).width() >= 1440){
+			$('body > section > aside').css({'position':'fixed', 'min-height':h+'px', 'height':h+'px', 'top':'40px', 'right': r, 'margin-right':'0px'});
+		}else{
+			$('body > section > aside').css({'position':'fixed', 'min-height':'100%', 'height':h+'px', 'top':'0px', 'right': r, 'margin-right':'0px'});
+		}
+		
+		var fwcw = Math.max(0, $('body > section').width() - 242),
+			fwch = Math.floor(fwcw / 1.77777777777778);
+		$('.fluid-width-video-wrapper iframe').width(fwcw);
+		$('.fluid-width-video-wrapper iframe').height(fwch);
+		
+		$('body > section > article > header').css({'width':fwcw+2,'position':'fixed','top':'0em','left':section_offset.left});
+	};
+	
+	/*===========================
+	MINIMAL INFINITE SCROLLING CODE FOR TUMBLR
+	=============================*/
+	
+	jt.nfscrl = {};
+	jt.nfscrl.states = {'failed':-2,'disabled':-1,'loading':0,'enabled':1};
+	jt.nfscrl.state = -1;
+	jt.nfscrl.next_link = 0;
+	jt.nfscrl.reached_scroll_limit = false;
+	jt.nfscrl.scroll_limit_pixel_buffer = 10;
+	jt.nfscrl.ajax_request = false;
+	jt.nfscrl.okToEnable = function checkSafeToEnableInfiniteScrolling(){
+		// do not initialize infinite scrolling if the next page is NOT there
+		// or if the prev page link IS there
+		jt.nfscrl.next_link = $('#pagination .next');
+		return (jt.nfscrl.next_link.length && (! $('#pagination .prev').length));
+	};
+	
+	jt.nfscrl.checkReachedScrollLimit = function checkReachedScrollLimit(){
+		jt.nfscrl.reached_scroll_limit = false;
+
+		debug(($(document).height() - $(window).height()));
+		debug($(document).scrollTop());
+		
+		if(($(document).scrollTop() + jt.nfscrl.scroll_limit_pixel_buffer) >= ($(document).height() - $(window).height())){
+			debug('===================== reached scroll limit');
+			jt.nfscrl.reached_scroll_limit = true;
+		}
+	}
+	
+	jt.nfscrl.reachedEndOfPages = function reachedEndOfPages(){
+		jt.nfscrl.next_link = 0;
+		jt.nfscrl.state = -1;
+		$('#posts .post:last').addClass('last-post');
+		jt.nfscrl.unbindToScrollEvent();
+	};
+
+	jt.nfscrl.appendNewPosts = function appendNewPosts(data){
+		var p,post,
+			new_posts = $(data).find('.post'),
+			frag = document.createDocumentFragment();
+
+		$.each(new_posts, function(index, value) { 
+			frag.appendChild(value);
+		});
+
+		$(frag).insertBefore('#pagination');
+	};
+	
+	jt.nfscrl.setNewNextPage = function setNewNextPage(data){
+		var next_link = $(data).find('#pagination .next');
+		if (! next_link.length){
+			jt.nfscrl.reachedEndOfPages();
+			return false;
+		}
+		$('#pagination .next').attr('href', next_link.attr('href'));
+		// set good to go again
+		jt.nfscrl.state = 1;
+		debug('next new page set');
+	};
+	
+	jt.nfscrl.hidePagination = function hidePagination(){
+		$('#pagination .next').css({'display':'none'});
+	};
+	
+	jt.nfscrl.showPagination = function showPagination(){
+		$('#pagination .next').css({'display':'block'});
+	};
+	
+	jt.nfscrl.showLoadingGif = function showLoadingGif(){
+		$('#nfscrl').attr('style','').fadeTo(0,1).fadeIn(500);
+	};
+	
+	jt.nfscrl.nextPageLoaded = function nextPageLoaded(data, textStatus, jqXHR){
+		debug({'html':data});
+		$('#nfscrl').fadeOut(500,
+			function(){
+				debug('loading gif faded out');
+				jt.nfscrl.appendNewPosts(data);
+				jt.nfscrl.setNewNextPage(data);
+				jt.repositionLayout();
+			}
+		);
+	};
+	
+	jt.nfscrl.abandon = function abandonInfiniteScrolling(){
+		debug('abandoning infinite scrolling');
+		jt.nfscrl.state = -2;
+		jt.nfscrl.unbindToScrollEvent();
+		jt.nfscrl.showPagination();
+	};
+	
+	jt.nfscrl.nextPageLoadingError = function nextPageLoadingError(jqXHR, textStatus, errorThrown){
+		debug(jqXHR);
+		debug(textStatus);
+		debug(errorTrown);
+		jt.nfscrl.abandon();
+	};
+	
+	jt.nfscrl.nextPageLoadingComplete = function nextPageLoadingCompleted(jqXHR, textStatus){
+		debug(textStatus);
+	};
+	
+	jt.nfscrl.loadNextPage = function(e){
+		debug('loading next page and t.nfscrl.state ='+jt.nfscrl.state);
+		jt.nfscrl.state = 0;
+		jt.nfscrl.showLoadingGif();
+		
+		jt.nfscrl.ajax_request = $.ajax({
+			url: jt.nfscrl.next_link.attr('href'),
+			//dataType:'html',
+			statusCode: {
+				404: jt.nfscrl.nextPageLoadingError
+			}
+		})
+		.done(jt.nfscrl.nextPageLoaded)
+		.fail(jt.nfscrl.nextPageLoadingError)
+		.always(jt.nfscrl.nextPageLoadingCompleted);
+	};
+	
+	jt.nfscrl.scrollHandler = function scrollHandler(e){
+		jt.nfscrl.checkReachedScrollLimit();
+		if (jt.nfscrl.state && jt.nfscrl.reached_scroll_limit){
+			jt.nfscrl.loadNextPage();
+		}
+	};
+	
+	jt.nfscrl.bindToScrollEvent = function bindToScrollEvent(){
+		$(document).on(
+			'scroll',
+			jt.nfscrl.scrollHandler
+		);
+	};
+	
+	jt.nfscrl.unbindToScrollEvent = function unbindToScrollEvent(){
+		$(document).off(
+			'scroll',
+			jt.nfscrl.scrollHandler
+		);
+	};
+	
+	jt.nfscrl.init = function infiniteScrollInit(e){
+		if (! jt.nfscrl.okToEnable()){
+			debug('next link not found');
+			return false;
+		}
+		
+		jt.nfscrl.bindToScrollEvent();
+		
+		jt.nfscrl.hidePagination();
+		
+		jt.nfscrl.state = 1;
+		
+		debug('infinite scrolling initialized');
+	};
+			
+	/*=========================
+	LABjs = OPTIMIZED PARALLEL JAVASCRIPT (PRE)LOADING AND EXECUTION ORDER CONTROL // see http://labjs.com/
+	===========================*/
+	$LAB
+	.setOptions({AllowDuplicates:false, AppendTo:'body'})
+	.script("http://www.google-analytics.com/ga.js")
+	.script("http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js").wait(
+		function pageInit() {
+		
+			jt.repositionLayout();
+			
+			$(window).resize(jt.repositionLayout);
+
+			{block:IfShowRecentTweet}
+			/*$(".tweets").tweet({
+				username: "{text:Twitter Profile}",
+				join_text: "auto",
+				count: 1,
+				auto_join_text_default: "we said,", 
+				auto_join_text_ed: "we",
+				auto_join_text_ing: "we were",
+				auto_join_text_reply: "we replied to",
+				auto_join_text_url: "we were checking out",
+				loading_text: "Getting latest tweet..."
+			}).bind('loaded', function () {
+				$('.twitter-feed').fadeTo('fast', 1);
+			});*/
+			{/block:IfShowRecentTweet}
+			
+ 			// Like Button On Each Post 
+			$('#posts').on(
+				'mouseup',
+				'.like', 
+				function (e){
+					e.preventDefault();
+					var command = $(this).hasClass('liked')? 'unlike' : 'like',
+						post = $(this).closest('.post'),
+						oauth = post.find('.reblog').attr('href').slice(-8),
+						id = post.attr('id'),
+						likeUrl = 'http://www.tumblr.com/' + command + '/' + oauth + '?id=' + id;
+					$('#like-it').attr('src', likeUrl);
+					$(this).toggleClass('liked');
+				}
+			);
+			
+			// touch-as-hover for touch devices 
+			$('#posts').on(
+				'touchstart touchend', 
+				'.touch-hover',
+				function(e) {
+					e.preventDefault();
+					$(this).toggleClass('hover_touched');
+				}
+			);
+			
+			if($('#ask_form').length) {
+				debug('found ask form');
+				$('.details').css('display','none');
+				$('#section_nav .current').removeClass('current');
+			}
+			
+			// init infinite scrolling
+			jt.nfscrl.init();
+
+			debug('initialized');
+		}
+	);
+	/* ]]> */
+	</script>
+
+</html>
