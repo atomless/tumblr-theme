@@ -29,13 +29,12 @@
 		<meta name="if:Show Post Type" content="0">
 		<meta name="if:Show Post Date" content="1">
 		<meta name="if:Show Permalink" content="1">
-		<meta name="if:Show Tweet Post" content="0">
+		<meta name="if:Show Tweet Post" content="1">
 		<meta name="if:Show Reblog Post" content="1">
 		<meta name="if:Show Post Notes" content="1">
 		<meta name="if:Hide Tumblr Controls" content="1">
 		<meta name="if:Enable Pre Code Support" content="1">
 		<meta name="if:Show Read Later" content="1">
-		<meta name="if:Show Recent Tweet" content="1">
 		<!-- Info -->
 		<meta name="text:Google Analytics ID" content="UA-6189585-1">
 		<meta name="text:Email Address" content="james@atomless.com">
@@ -606,13 +605,6 @@
 					</ul>
 				</section>
 				
-				{block:IfShowRecentTweet}
-				<section class="twitter-feed">
-					<h3>Latest From Twitter</h3>
-					<div class="tweets"></div>
-				</section>
-				{/block:IfShowRecentTweet}
-				
 				<section class="pages">
 					<p class="license small"><a rel="external license" class="icons" href="http://creativecommons.org/licenses/by-sa/3.0/"><span>c</span></a> Attribution & Share Alike License</p>
 				</section>
@@ -860,22 +852,6 @@
 			jt.repositionLayout();
 			
 			$(window).resize(jt.repositionLayout);
-
-			{block:IfShowRecentTweet}
-			/*$(".tweets").tweet({
-				username: "{text:Twitter Profile}",
-				join_text: "auto",
-				count: 1,
-				auto_join_text_default: "we said,", 
-				auto_join_text_ed: "we",
-				auto_join_text_ing: "we were",
-				auto_join_text_reply: "we replied to",
-				auto_join_text_url: "we were checking out",
-				loading_text: "Getting latest tweet..."
-			}).bind('loaded', function () {
-				$('.twitter-feed').fadeTo('fast', 1);
-			});*/
-			{/block:IfShowRecentTweet}
 			
  			// Like Button On Each Post 
 			$('#posts').on(
