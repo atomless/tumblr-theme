@@ -203,7 +203,7 @@
 			ASIDE 
 			=============================*/
 			.logo-wrapper{width:100%;}
-			#logo{width:80px;height:80px;display:block;margin:3em auto 1em auto;opacity:0.8;}
+			#logo{width:80px;height:80px;display:block;margin:3em auto 1em auto;opacity:1;}
 			
 			aside > * {margin-bottom:2.8em;}
 			aside > #services{margin-bottom:1.8em;}
@@ -282,6 +282,8 @@
 			=============================*/
 			#posts .details{-webkit-text-size-adjust:none;overflow:visible;width:25%;margin:0;padding:0;display:block;text-indent:0em;list-style:none;position:absolute;left:0px;top:0px;border-top:1px solid #ccc;}
 			
+			#posts .details:hover{background-color:rgba(255,255,255,0.7);}
+			
 			#posts .details li{overflow:hidden;position:relative;display:block;clear:both;opacity:0;transition:all .3s linear;-o-transition:all .3s linear;-moz-transition:all .3s linear;-webkit-transition:all .3s linear;text-transform:uppercase;font-size:0.565em;letter-spacing:.15em;}
 			
 
@@ -289,19 +291,19 @@
 			
 			#posts .details li.postdate, #posts .details li.postdate a{opacity:1;color:{color:TagColour};}
 			
-			#posts .details li a span, .postdate time{margin-left:3em;text;overflow:hidden;text-overflow:ellipsis;-webkit-text-overflow:ellipsis;white-space:nowrap;}
-			#posts .details li a:hover,#posts .details li a:active{color:{color:TagColour};background-color:#fff;}
-			#posts .details li a:before{font-family:'IcoMoonRegular';background-color:#fff;color:#888,width:1.5em;height:1.5em;text-transform:none;font-size:1.3em;position:absolute;left:0px;vertical-align: middle;color:{color:TagColour};display:block;text-align:center;}
+			#posts .details li a span, .postdate time{margin-left:3.4em;text;overflow:hidden;text-overflow:ellipsis;-webkit-text-overflow:ellipsis;white-space:nowrap;}
+			#posts .details li a:hover,#posts .details li a:active{color:#aaa;background-color:#fff;}
+			#posts .details li a:before{font-family:'IcoMoonRegular';border-right:1px solid #f0f0f0;background-color:#fff;color:#888,width:1.5em;height:1.5em;text-transform:none;font-size:1.3em;position:absolute;left:0px;vertical-align: middle;color:{color:TagColour};display:block;text-align:center;}
 
 			#posts .post:hover .details li, #posts .hover-touched .details li{opacity:1;}
 
 			#posts .details li a:hover:before{color:#555;}
 			#posts .details li a.tag:before{content:'#';font-family:'Droid Sans','Helvetica Neue',Arial,sans-serif;}
 			
-			#posts .details li a.tweetlink:before{content:'#';font-size:1.55em;width:1.7em;height:1.7em;}
-			#posts .details li a.reblog:before{content:'r';width:2em;height:2em;}
-			#posts .details li a.like:before{content:'1';width:2em;height:2em;}
-			#posts .details li a.permalink:before{content:'∞';font-family:'Helvetica';font-size:2em;width:1.3em;height:1.3em;}
+			#posts .details li a.tweetlink:before{content:'#';font-size:1.55em;width:1.7em;height:2em;}
+			#posts .details li a.reblog:before{content:'r';width:2em;height:2.3em;}
+			#posts .details li a.like:before{content:'1';width:2em;height:2.3em;}
+			#posts .details li a.permalink:before{content:'∞';font-family:'Helvetica';font-size:2em;width:1.3em;height:1.7em;}
 
 			/*#posts .details li a.date:before{content:'4';}*/
 			#posts .details li a.readlater:before{content:'I';font-family:'Times';font-weight:bold;font-size:1.6em;width:1.5em;height:1.5em;}
