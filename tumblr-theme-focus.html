@@ -11,6 +11,7 @@
 		<!-- Theme Variables -->
 		
 		<!-- Colors -->
+		<meta name="color:BackgroundColour" content="#fff">
 		<meta name="color:MainHeadingColour" content="#000">
 		<meta name="color:MainTextColour" content="#555">
 		<meta name="color:TagColour" content="#cfcfcf">
@@ -92,7 +93,7 @@
 			ul,ol{list-style:none;}
 			article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,audio,canvas,video,menu,time{display:block;}
 			html{height:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
-			body{height:100%;font-size:100%;font-size:0.9375em;line-height:1.6em;font-family:'Droid Sans','Helvetica Neue',Arial,sans-serif;font-weight:400;background:#fefefe;-webkit-tap-highlight-color:rgba(255, 253, 180, 0.95);}
+			body{height:100%;font-size:100%;font-size:0.9375em;line-height:1.6em;font-family:'Droid Sans','Helvetica Neue',Arial,sans-serif;font-weight:400;background:{color:BackgroundColour};-webkit-tap-highlight-color:rgba(255, 253, 180, 0.95);}
 			.icons span{font-family:'IcoMoonRegular';}
 			sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}
 			sup{top:-0.5em;}
@@ -163,17 +164,20 @@
 			article{padding-right:16.085em;min-height:100%;margin:0;border-left:1px solid #fefefe;position:static;overflow:auto;}
 			
 			article > header{height:2.5em;width:100%;display:block;float:left;overflow:hidden;position:relative;z-index:100;background-color:#fff;border-bottom:1px solid #fefefe;}
-			aside{position:absolute;top:0px;right:0px;min-height:100%;width:12.085em;padding:0 2em;background-color:{color:SideBGColour};z-index:101;border:1px solid {color:SideBGColour};margin-right:-2px;}
+			aside{position:absolute;top:0px;right:0px;min-height:100%;width:12.085em;padding:0 2em;background-color:{color:SideBGColour};z-index:101;border:1px solid {color:TrimColour};margin-right:-2px;}
 			
 			#posts{padding-top:3.2em;position:relative;margin-left:0.05em;background-color:#fff;}
 			#posts .post {position:relative;overflow:visible;display:block;padding-top:2em;padding-bottom:1em;background:#fff;}
 			#posts .photo, #posts .video{padding-top:3em;}
-			#posts li.post:before{content:' ';display:block;position:absolute;width:50%;top:0px;left:25%;height:0px;border-bottom:1px solid #f0f0f0;}
+			#posts li.post:before,#end-dot:before{content:' ';display:block;position:absolute;width:50%;top:0px;left:25%;height:0px;border-bottom:1px solid {color:TrimColour};}
 			
-			#posts .post:first-child{margin-top:5em;}
-			#posts .post:first-child:after{content:'·';width:100%;display:block;text-align:center;font-size:2.333em;color:#ccc;position:absolute;top:-1.5em;left:0;}
-			#posts li.last-post{padding-bottom:7em;border-bottom:none;}
-			body #posts li.last-post:after{content:'·';width:100%;display:block;text-align:center;font-size:2.333em;color:#ccc;position:absolute;bottom:2em;left:0;}
+
+			#posts .dot{text-align:center;font-size:2.333em;color:#ccc;display:block;padding:.65em 0 .85em 0;background:#fff;}
+			#end-dot{display:none !important;padding-bottom:2.5em;position:relative;overflow:visible;}
+			.last-post + #end-dot{display:block !important;}
+			
+			/*#posts li.last-post{padding-bottom:7em;border-bottom:none;}
+			body #posts li.last-post:after{content:'·';width:100%;display:block;text-align:center;font-size:2.333em;color:#ccc;position:absolute;bottom:2em;left:0;}*/
 			
 			#posts .post .content, #posts .tags, #posts .notes, .search-wrapper form, #pagination ul,#posts li.post:before {width:50%;margin-left:auto;margin-right:auto;max-width:34em;}
 			#posts .details{width:25%;}
@@ -251,9 +255,9 @@
 
 			#posts .video .fluid-width-video-wrapper iframe{width:99.9%;height:57%;display:block;margin-bottom:2.4em;}
 
-			#posts .audio img{-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;margin-bottom:1.4em;}
-			#posts .audio .audio_player{-webkit-border-radius:30px;-moz-border-radius:30px;border-radius:30px;margin-bottom:1.4em;background:#e4e4e4;height:2.1333333333333333em;}
-			#posts .audio .audio_player embed{margin-left:12.8em;margin-top:0.2em;}
+			#posts .audio img{margin-bottom:1.4em;}
+			#posts .audio .audio_player{margin-bottom:1.4em;background:transparent;height:1.865em;}
+			#posts .audio .audio_player embed{}
 			
 			#posts .quote h1:before{content:'"';color:{color:TrimColour};margin-left:-0.3em;}
 			#posts .quote h1:after{content:'"';color:{color:TrimColour};margin-right:-0.3em;}
@@ -295,11 +299,11 @@
 			#posts .details{-webkit-text-size-adjust:none;overflow:visible;width:25%;margin:0;padding:0;display:block;text-indent:0em;list-style:none;position:absolute;left:0px;top:0px;border-top:1px solid #ccc;}
 			
 			#posts .details:hover{background-color:rgba(255,255,255,0.7);}
-			#posts .details li{overflow:hidden;position:relative;display:block;clear:both;opacity:0;text-transform:uppercase;font-size:0.565em;letter-spacing:.15em;}
-			#posts .details li a{display:block;line-height:3em;overflow:hidden;text-overflow:ellipsis;-webkit-text-overflow:ellipsis;text-decoration:none;color:transparent;border:none;white-space:nowrap;}
+			#posts .details li{position:relative;display:block;clear:both;opacity:0;text-transform:uppercase;font-size:0.565em;letter-spacing:.15em;}
+			#posts .details li a{display:block;line-height:3em;text-decoration:none;color:transparent;border:none;white-space:nowrap;}
 			#posts .details li.postdate, #posts .details li.postdate a{opacity:1;color:{color:TagColour};}
 			
-			#posts .details li a span, .postdate time{margin-left:3.4em;text;overflow:hidden;text-overflow:ellipsis;-webkit-text-overflow:ellipsis;white-space:nowrap;}
+			#posts .details li a span, .postdate time{margin-left:3.4em;white-space:nowrap;}
 			#posts .details li a:hover,#posts .details li a:active{color:#aaa;background-color:#fff;}
 			#posts .details li a:before{font-family:'IcoMoonRegular';border-right:1px solid #f0f0f0;background-color:#fff;color:#888,width:1.5em;height:1.5em;text-transform:none;font-size:1.3em;position:absolute;left:0px;vertical-align: middle;color:{color:TagColour};display:block;text-align:center;}
 
@@ -389,6 +393,9 @@
 				</header>
 				
 				<ol id="posts" class="hfeed">
+				
+				    <li class="dot"><section class="content">·</section></li>
+				    
 				{block:NoSearchResults}
 					<li class="hentry post">
 						<section class="content">
@@ -474,16 +481,26 @@
 						
 						{block:Audio}
 						<section class="content">
+						    {block:TrackName}
+						    <!--<h1><a href="{ExternalAudioURL">{TrackName}</a>{block:Artist} by {Artist}{/block:Artist}</h1>-->
+						    {/block:TrackName}
+						    
 							{block:AlbumArt}
 							<img src="{AlbumArtURL}">
 							{/block:AlbumArt}
+							
+							{block:AudioPlayer}
 							{AudioPlayerGrey}
-							{block:TrackName}
-							<p>Track: <a href="{Permalink}">{TrackName}</a></p>
-							{/block:TrackName}
+							{/block:AudioPlayer}
+							
+							{block:AudioEmbed}
+							{AudioEmbed}
+							{/block:AudioEmbed}
+
 							{block:ExternalAudio} 
 							<p>Download: <a href="{ExternalAudioURL}">{ExternalAudioURL}</a>
 							{/block:ExternalAudio}
+							
 							{block:Caption}
 							{Caption}
 							{/block:Caption}
@@ -548,6 +565,8 @@
 					
 					</li>
 				{/block:Posts}
+				
+				    <li class="dot" id="end-dot"><section class="content">·<ul class="details"></ul></section></li>
 				
 				{block:Pagination}
 					<li id="pagination">
@@ -763,7 +782,7 @@
 			frag.appendChild(value);
 		});
 
-		$(frag).insertBefore('#pagination');
+		$(frag).insertBefore('#end-dot');
 	};
 	
 	jt.nfscrl.setNewNextPage = function setNewNextPage(data){
