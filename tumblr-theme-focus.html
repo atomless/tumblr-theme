@@ -3,13 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		
-		<title>{Title} - {block:SearchPage}{lang:Search results for SearchQuery}{/block:SearchPage}{block:PostSummary}{PostSummary}{/block:PostSummary}</title>
-		{block:Description}
-		<meta name="description" content="{MetaDescription}">
-		{/block:Description}
 		<!-- Theme Variables -->
-		
 		<!-- Colors -->
 		<meta name="color:BackgroundColour" content="#fff">
 		<meta name="color:MainHeadingColour" content="#000">
@@ -51,6 +45,11 @@
 		<meta name="text:Google Profile" content="">
 		<meta name="text:Flickr ID" content="">
 		
+		<title>Ramblings &amp; Noise{block:SearchPage}{lang: - Search results for SearchQuery}{/block:SearchPage}{block:PostSummary} - {PostSummary}{/block:PostSummary}</title>
+		{block:Description}
+		<meta name="description" content="{MetaDescription}">
+		{/block:Description}
+		
 		<meta name="publisher" content="{text:Author}">
 		<meta name="author" content="{text:Author}">
 		<meta name="Reply-To" content="{text:Email Address}">
@@ -74,19 +73,20 @@
 		<link rel="profile" href="http://microformats.org/profile/hcalendar">
 		<link rel="profile" href="http://microformats.org/profile/rel-license">
 		
+		<!-- Feed -->
+		<link rel="alternate" type="application/rss+xml" title="{Title}" href="{text:Base URL}rss">
+		
 		<link rel="archive" type="text/html" title="Archive" href="{text:Base URL}archive">
 		<link rel="search" type="text/html" title="Search" href="{text:Base URL}?q=">
 		
 		<!-- Fonts -->
-		<link href="http://fonts.googleapis.com/css?family=Droid+Sans:400" rel="stylesheet" type="text/css">
+		<link href="http://fonts.googleapis.com/css?family=Droid+Sans:400|PT+Serif:400italic" rel="stylesheet" type="text/css">
 		<link href="http://jamestindall.info/assets/fonts/icomoon-selected/stylesheet.css?v=10" rel="stylesheet" type="text/css">
 		
 		<!-- Icons -->
 		<link rel="shortcut icon" href="{Favicon}" type="image/x-icon">
 		<link rel="apple-touch-icon" href="http://jamestindall.info/assets/images/apple-touch-icon.png">
 		<link rel="apple-touch-icon-precomposed" href="http://jamestindall.info/assets/images/apple-touch-icon.png">
-		<!-- Feed -->
-		<link rel="alternate" type="application/rss+xml" title="{Title}" href="{text:Base URL}rss">
 		
 		<style type="text/css">
 			body,div,h1,h2,h3,h4,h5,h6,p,blockquote,pre,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,th,td,article,aside,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0;border:0;}
@@ -113,8 +113,8 @@
 			img::selection{background:{color:HoverColour};}
 			img::-moz-selection{background:{color:HoverColour};}
 
-			h1,h2,h3,h4,h5,h6{font-family:'Droid Sans','Helvetica Neue',Arial,sans-serif;font-weight:400;color:{color:MainHeadingColour};}
-			h1{font-size:2.6em;line-height:1.5em;color:{color:MainHeadingColour};margin-bottom:0.583em;}
+			h1,h2,h3,h4,h5,h6{font-family:'Droid Sans','Helvetica Neue',Arial,sans-serif;font-weight:400;color:{color:MainHeadingColour};orphans:2;}
+			h1{font-size:2.6em;line-height:1.5em;color:{color:MainHeadingColour};margin-bottom:0.4em;}
 			h1 a, h2 a, h3 a, h4 a, h5 a, h6 a{color:{color:MainHeadingColour};font-weight:400;text-decoration:none;}
 			h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover{color:{color:HoverColour};border-bottom:1px dotted {color:HoverColour};}
 			h2 {font-size: 2.133em;line-height: 1.25em;margin-bottom: 0.656em;}
@@ -125,7 +125,7 @@
 			
 			.small {font-size:0.733em;}
 			
-			p{color:{color:MainTextColour};font-weight:400;font-family:'Droid Sans','Helvetica Neue',Arial,sans-serif;margin-bottom:1.4em;}
+			p{color:{color:MainTextColour};font-weight:400;font-family:'Droid Sans','Helvetica Neue',Arial,sans-serif;margin-bottom:1.4em;orphans:3;}
 			a{color:{color:MainHeadingColour};text-decoration:none;border-bottom:1px dotted {color:MainTextColour};transition:all .3s linear;-o-transition:all .3s linear;-moz-transition:all .3s linear;-webkit-transition:all .3s linear;}
 			aside a{border-bottom:1px dotted {color:SideTextColour};color:{color:SideLinkColour}}
 
@@ -133,6 +133,7 @@
 			a.view{display:block;width:100%;text-align:center;}
 			aside h1 a:hover, .pages a:hover, #pagination a:hover, #pagination a, a.view:hover, a.view{border-bottom:none;background-color:transparent;}
 			aside a:hover, aside a:active{color:{color:SideHoverColour};background-color:transparent;}
+			aside section.description p{font-style:italic;font-family:'PT Serif',serif;text-align:center;}
 			p a{white-space:nowrap;}
 			a.image-link{border-bottom:none;}
 			
@@ -142,8 +143,8 @@
 			.post ol li {color:{color:MainTextColour};}
 			
 			blockquote, body #posts .video .content p {border-left:3px solid #eee; padding-left:1.4em;margin-bottom:1.4em;}
-			blockquote, blockquote *, p.tweet, body #posts .video .content p{font-family: "Georgia",serif;font-style: italic;color:#333 !important;}
-			blockquote, p.tweet, body #posts .video .content p{font-size: 1.25em;line-height: 1.6em;}
+			.quote h1, blockquote, blockquote *, p.tweet, body #posts .video .content p{font-family: 'PT Serif',serif;font-style: italic;color:#222 !important;overflow:visible !important;}
+			.quote h1, blockquote, p.tweet, body #posts .video .content p{font-size: 1.4em;line-height: 1.65em !important;margin-bottom:1em !important;}
 			p.tweet{color:{color:MainHeadingColour} !important;}
 			code, pre {font-family:monospace,monospace; font-size:0.95em;color:{color:MainHeadingColour};}
 			
@@ -159,31 +160,33 @@
 			/*===========================
 			MAIN LAYOUT 
 			=============================*/
-			
-			body > section{height:100%;width:100%;max-width:85em;margin:0 auto;position:relative;overflow:visible;}
-			article{padding-right:16.085em;min-height:100%;margin:0;border-left:1px solid #fefefe;position:static;overflow:auto;}
+			body > section{height:100%;width:100%;max-width:90em;margin:0 auto;position:relative;overflow:visible;}
+			article{padding-right:16.085em;min-height:100%;margin:0;border-left:1px solid #fefefe;position:static;overflow:visible;}
 			
 			article > header{height:2.5em;width:100%;display:block;float:left;overflow:hidden;position:relative;z-index:100;background-color:#fff;border-bottom:1px solid #fefefe;}
 			aside{position:absolute;top:0px;right:0px;min-height:100%;width:12.085em;padding:0 2em;background-color:{color:SideBGColour};z-index:101;border:1px solid {color:TrimColour};margin-right:-2px;}
 			
 			#posts{padding-top:3.2em;position:relative;margin-left:0.05em;background-color:#fff;}
-			#posts .post {position:relative;overflow:visible;display:block;padding-top:2em;padding-bottom:1em;background:#fff;}
+			#posts .post{position:relative;overflow:visible;display:block;padding-top:2em;padding-bottom:1em;background:#fff;}
 			#posts .photo, #posts .video{padding-top:3em;}
-			#posts li.post:before,#end-dot:before{content:' ';display:block;position:absolute;width:50%;top:0px;left:25%;height:0px;border-bottom:1px solid {color:TrimColour};}
+			#posts li.post:after,#end-dot:after{content:' ';display:block;position:absolute;width:50%;top:0px;left:25%;height:0px;border-top:3px solid {color:TrimColour};}
 			
 
 			#posts .dot{text-align:center;font-size:2.333em;color:#ccc;display:block;padding:.65em 0 .85em 0;background:#fff;}
-			#end-dot{display:none !important;padding-bottom:2.5em;position:relative;overflow:visible;}
+			#end-dot{display:none !important;padding:1.1em 0 !important;position:relative;overflow:visible;}
 			.last-post + #end-dot{display:block !important;}
 			
-			/*#posts li.last-post{padding-bottom:7em;border-bottom:none;}
-			body #posts li.last-post:after{content:'·';width:100%;display:block;text-align:center;font-size:2.333em;color:#ccc;position:absolute;bottom:2em;left:0;}*/
-			
-			#posts .post .content, #posts .tags, #posts .notes, .search-wrapper form, #pagination ul,#posts li.post:before {width:50%;margin-left:auto;margin-right:auto;max-width:34em;}
+			.post .top-line, #end-dot .top-line{content:' ';display:block;width:100%;position:absolute;top:0px;left:0px;height:0px;border-top:1px dashed #f8f8f8;}
+			.post .bottom-line{content:' ';display:block;width:100%;position:absolute;bottom:0px;left:0px;height:0px;border-top:1px dashed #f8f8f8;}
+			.page-permalink .post:before{content:' ';display:block;position:absolute;width:50%;bottom:0px;left:25%;height:0px;border-bottom:3px solid {color:TrimColour};}
+
+			#posts .post .content, #posts .tags, #posts .notes, .search-wrapper form, #pagination ul,#posts li.post:after {width:50%;margin-left:auto;margin-right:auto;max-width:37em;}
 			#posts .details{width:25%;}
 			#posts .details li a span{opacity:0;}
 			
-			#posts .post .content p{overflow:hidden;text-overflow:ellipsis;}
+			#posts .post .content p{overflow:hidden;text-overflow:ellipsis;line-height:1.75em;}
+			
+			footer{display:none;z-index:1;}
 
 			/*===========================
 			SEARCH 
@@ -212,16 +215,16 @@
 			aside > * {margin-bottom:2.8em;}
 			aside > #services{margin-bottom:1.8em;}
 			aside h1 a {color:{color:SideHeadingColour};border-bottom:none;}
-			aside h1{font-size:1.24em;line-height:1.2857142857142858em;color:{color:SideHeadingColour};text-transform:uppercase;margin-top:0 !important;margin-bottom:0.75em;white-space:nowrap;}
-			aside h3{font-size:1em;line-height:1.2857142857142858em;color:{color:SideHeadingColour};text-transform:uppercase;margin-top:0 !important;margin-bottom:0.75em;}
+			aside h1{font-size:1.08em;letter-spacing:0.15em;line-height:1.2857142857142858em;color:{color:SideHeadingColour};text-transform:uppercase;margin-top:0 !important;margin-bottom:0.3em;white-space:nowrap;}
+			aside h3{font-size:1em;letter-spacing:0.15em;line-height:1.2857142857142858em;color:{color:SideHeadingColour};text-transform:uppercase;margin-top:0 !important;margin-bottom:0.75em;}
 			aside p, aside h2{font-size:0.8666666666666667em;color:{color:SideTextColour};clear:both;}
+			aside .uid{color:#888;}
 
 			aside .pages ul li{font-size:0.8666666666666667em;margin-bottom:.5em;}
 			aside .pages ul li:last-child{margin-bottom:0em;}
 			aside .pages ul li a{padding:.3em 0;display:block;color:{color:SideTextColour};text-decoration:none;border-bottom:none;}
 			aside .pages ul li a:hover{color:{color:SideHeadingColour};border-bottom:none;transition:all .3s linear;-o-transition:all .3s linear;-moz-transition:all .3s linear;-webkit-transition:all .3s linear;}
 			aside .pages ul li a span{padding-right:1em;width:1em;font-size:1.183333333em;}
-			aside .pages ul li:first-child a span{font-size:1.25em;}
 			
 			aside #section_nav a.current{background-color:{color:SideCurrentBGColour};width:16.154em;position:relative;padding-left:2.5em;margin-left:-2.4em;color:#ddd;}
 			aside #section_nav a.current:before{content:' ';display:block;position:absolute;left:0px;top:0px;margin-left:-2.537em;background-color:transparent;width:0em;height:0em;border:1.3em solid rgba(255, 250, 100, 0.8);border-top-color:transparent;border-bottom-color:transparent;border-left-color:transparent;}
@@ -236,10 +239,10 @@
 			aside .pages .links li:hover,aside .links li:hover a{cursor:pointer;cursor:hand;color:#eee;background-color:transparent;}
 			aside .pages .links li:active{cursor:pointer;cursor:hand;}
 			
-			aside p.license, aside .license a{color:{color:SideLicenseColour} !important; border-bottom:none !important;position:relative;font-size:0.7em;}
-			aside p.license a{padding-left:2em;}
-			aside p.license a span {font-size:1.5em;line-height:0.733em;position:absolute;top:0em;left:0;}
-			
+			aside p.license{font-family:'PT Serif', serif;font-style:italic;-webkit-text-size-adjust:none;text-align:center;}
+			aside p.license, aside .license a{color:{color:SideLicenseColour} !important;border-bottom:none !important;position:relative;font-size:0.7em;}
+			aside p.license a{display:block;font-style:normal;}
+			aside p.license a span {font-size:2.5em;line-height:3em;}
 			
 			/*===========================
 			POST CONTENTS 
@@ -251,9 +254,11 @@
 			#posts .chat li .label{font-weight:700;}
 			#posts .chat li.odd{color:{color:MainHeadingColour};}
 			#posts .chat li.even{color:{color:MainTextColour};}
-			#posts .photo img{margin-bottom:1.4em;}
+			#posts .photo img, .post img{margin-bottom:1.4em;border:1px solid {color:TrimColour};}
 
 			#posts .video .fluid-width-video-wrapper iframe{width:99.9%;height:57%;display:block;margin-bottom:2.4em;}
+			#posts .video .fluid-width-video-wrapper > object, #posts .video .fluid-width-video-wrapper > embed{display:block;margin:0 auto 2.4em auto;}
+			#posts .video .fluid-width-video-wrapper iframe.soundcloud-embed{height:166px !important;}
 
 			#posts .audio img{margin-bottom:1.4em;}
 			#posts .audio .audio_player{margin-bottom:1.4em;background:transparent;height:1.865em;}
@@ -262,24 +267,22 @@
 			#posts .quote h1:before{content:'"';color:{color:TrimColour};margin-left:-0.3em;}
 			#posts .quote h1:after{content:'"';color:{color:TrimColour};margin-right:-0.3em;}
 			
-			#posts .notes {list-style:none;padding-top:1.4em;margin-top:1.4em;float:none;overflow:hidden;clear:both;border-top:1px solid {color:TrimColour};margin-bottom:1.4em;}
-			#posts .notes li {width:100%;margin-bottom:0.7em;display:block;color:{color:TagColour};font-size:0.733em;}
-			#posts .notes li .action a{color:{color:TagColour};}
-			#posts .notes li a img {width:auto;vertical-align:middle;margin-right:0.7em;margin-bottom:0;}
-			#posts .notes li blockquote {margin:0.7em 0 0;}
-			
 			/*===========================
 			TAGS 
 			=============================*/
-			#posts .tags{padding:0;display:block;text-indent:0em;list-style:none;overflow:hidden;height:0px;margin-bottom:0px;opacity:0;}
-			#posts .tags li {float:left;}
-			#posts .tags li.tag a,#posts .tags li.noteslabel a {color:{color:TagColour};font-size:0.733em;border-bottom:1px dotted {color:TagColour};margin-right:10px;}
-			#posts .tags li.action{overflow:visible;position:relative;display:block;text-transform:uppercase;font-size:0.565em;letter-spacing:.15em;width:3em;}
+			#posts .tags{padding:0;display:block;text-indent:0em;list-style:none;overflow:hidden;height:0px;margin-bottom:0px;opacity:0;background-color:#f8f8f8;}
+			#posts .tags li {float:left;text-transform:uppercase;font-size:0.565em;letter-spacing:.2em;-webkit-text-size-adjust:none;}
+			#posts .tags li:first-child{margin-left:1em;}
+			#posts .tags li.tag a, #posts .tags li.noteslabel a {color:{color:TagColour};border-bottom:none;margin-right:.7em;}
+			#posts .tags li.tag a{border:1px dotted #f0f0f0;padding:1px 2px 0 2px;margin-right:1em;}
+			#posts .tags li.action{overflow:visible;position:relative;display:block;width:3em;}
 			#posts .tags li a:hover {color:{color:HoverColour};}
-			#posts .tags li.tag a:before{content:'#';font-family:'Droid Sans','Helvetica Neue',Arial,sans-serif;}
+			#posts .tags li.tag a:before{content:'#';font-family:'Droid Sans','Helvetica Neue',Arial,sans-serif;margin-right:.23em;color:#888;}
 			
-			#posts .tags li.action a span{display:block;padding:3em 0 0 1em;white-space:nowrap;color:transparent;}
-			#posts .tags li.action a:hover span{color:{color:TagColour};}
+			#posts .tags li.action a span{display:block;float:left;position:relative;margin-top:3.25em;padding:0 0 0 2.3em;white-space:nowrap;color:transparent;}
+			#posts .tags li.action a span:before{content:'↳';position:absolute;left:1em;top:0px;}
+			#posts .tags li.action a:hover span{color:{color:MainTextColour};}
+			#posts .tags li.action a:hover span:before{color:{color:TagColour};}
 			#posts .tags li.action a{border-bottom:none;}
 			#posts .tags li.action a:hover,#posts .tags li.action a:active{color:#aaa;}
 			#posts .tags li.action a:before{font-family:'IcoMoonRegular';color:#888,width:1.5em;height:1.5em;text-transform:none;font-size:1.3em;position:absolute;left:0px;vertical-align: middle;color:{color:TagColour};display:block;text-align:center;}
@@ -290,22 +293,22 @@
 			#posts .tags li.action a.like:before{content:'1';width:2em;height:2.3em;}
 			#posts .tags li.action a.readlater:before{content:'I';font-family:'Times';font-weight:bold;font-size:1.6em;width:1.5em;height:1.5em;}
 			
-			li.noteslabel:after{content:'·';display:block;float:right;padding-left:.2em;width:0.9em;color:{color:TagColour};}
-			li.action + li.tag:before, li.action + li.noteslabel:before{content:'·';display:block;float:left;padding-left:.2em;width:0.9em;color:{color:TagColour};}
+			li.noteslabel:after, li.action + li.tag:before, li.action + li.noteslabel:before{content:' ';width:.3em;height:1em;display:block;font-size:2em;float:left;margin-right:.7em;border-right:1px dashed #e8e8e8;margin-top:.3em;}
+			li.noteslabel:after{float:right;}
 			
 			/*===========================
 			POST DETAILS AND ACTION BUTTONS 
 			=============================*/
-			#posts .details{-webkit-text-size-adjust:none;overflow:visible;width:25%;margin:0;padding:0;display:block;text-indent:0em;list-style:none;position:absolute;left:0px;top:0px;border-top:1px solid #ccc;}
+			#posts .details{-webkit-text-size-adjust:none;overflow:visible;width:25%;margin:0;padding:0;display:block;text-indent:0em;list-style:none;position:absolute;left:0px;top:0px;border-top:1px dashed #eee;}
 			
 			#posts .details:hover{background-color:rgba(255,255,255,0.7);}
-			#posts .details li{position:relative;display:block;clear:both;opacity:0;text-transform:uppercase;font-size:0.565em;letter-spacing:.15em;}
+			#posts .details li{position:relative;display:block;clear:both;opacity:0;text-transform:uppercase;font-size:0.565em;letter-spacing:.2em;}
 			#posts .details li a{display:block;line-height:3em;text-decoration:none;color:transparent;border:none;white-space:nowrap;}
 			#posts .details li.postdate, #posts .details li.postdate a{opacity:1;color:{color:TagColour};}
 			
 			#posts .details li a span, .postdate time{margin-left:3.4em;white-space:nowrap;}
 			#posts .details li a:hover,#posts .details li a:active{color:#aaa;background-color:#fff;}
-			#posts .details li a:before{font-family:'IcoMoonRegular';border-right:1px solid #f0f0f0;background-color:#fff;color:#888,width:1.5em;height:1.5em;text-transform:none;font-size:1.3em;position:absolute;left:0px;vertical-align: middle;color:{color:TagColour};display:block;text-align:center;}
+			#posts .details li a:before{font-family:'IcoMoonRegular';border-right:1px dashed #f0f0f0;background-color:#fff;color:#888,width:1.5em;height:1.5em;text-transform:none;font-size:1.3em;position:absolute;left:0px;vertical-align: middle;color:{color:TagColour};display:block;text-align:center;}
 
 			#posts .post:hover .details li, #posts .hover-touched .details li{opacity:1;}
 
@@ -316,11 +319,24 @@
 			.liked:before {color:#555 !important;}
 			
 			/*===========================
+			NOTES
+			=============================*/
+			
+			#posts .notes {padding-top:1.4em;margin-top:2.4em;float:none;clear:both;border-top:1px dashed #ddd;margin-bottom:1.4em;list-style-type: decimal;list-style-position: outside;}
+			#posts .notes li {width:100%;margin-bottom:1em;font-family:'PT Serif', serif;font-size:0.733em;color:{color:HoverColour};margin-left:-1em;padding-left:1em;}
+			#posts .notes li .action{color:{color:TagColour};font-family:'Droid Sans','Helvetica Neue',Arial,sans-serif;}
+			#posts .notes li .action a{color:{color:MainTextColour};}
+			#posts .notes li a img {width:auto;vertical-align:middle;margin-right:0.7em;margin-bottom:0;}
+			#posts .notes li blockquote {margin:0.7em 0 0;}
+			
+			.note > a {border-bottom:none;}
+			
+			/*===========================
 			PAGINATION
 			=============================*/
 			
-			#pagination ul{background-color:#333;padding:2em 0 4em 0;height:2em;z-index:10;border:none;overfow:hidden;display:block;text-align:center;}
-			#pagination li{min-height:0;text-decoration:none;text-align:center;margin-left:0.6666666666666666em;margin-right:0;display:inline;}
+			#pagination ul{background-color:#333;padding:2em 0 4em 0;height:2em;z-index:10;border:none;overflow:hidden;display:block;text-align:center;z-index:2;}
+			#pagination li{min-height:0;text-decoration:none;text-align:center;margin-left:0.6666666666666666em;margin-right:0;display:inline;;}
 			#pagination li a{color:#ddd;text-decoration:none;outline:0;font-size:2em;margin:0 auto;display:block;}
 			#pagination li a.next{float:none;}
 			#pagination li a.next span{display:block;}
@@ -340,26 +356,26 @@
 			=============================*/
 				
 			@media screen and (min-width: 0em){
-				#posts .post .content,#posts .tags, #posts .notes, .search-wrapper form, #pagination ul,#posts li.post:before{width:80%;}
-				#posts li.post:before {left:10%;}
+				#posts .post .content,#posts .tags, #posts .notes, .search-wrapper form, #pagination ul,#posts li.post:after{width:80%;}
+				#posts li.post:after {left:10%;}
 				#posts .details{width:10%;min-width:2em;}
 			}
 			
 			@media screen and (min-width: 55em){
-				#posts .post .content,#posts .tags, #posts .notes, .search-wrapper form, #pagination ul,#posts li.post:before{width:70%;}
-				#posts li.post:before {left:15%;}
+				#posts .post .content,#posts .tags, #posts .notes, .search-wrapper form, #pagination ul,#posts li.post:after{width:70%;}
+				#posts li.post:after {left:15%;}
 				#posts .details{width:15%;}
 			}
 			
 			@media screen and (min-width: 75em){
-				#posts .post .content,#posts .tags, #posts .notes, .search-wrapper form, #pagination ul,#posts li.post:before{width:60%;}
-				#posts li.post:before {left:20%;}
+				#posts .post .content,#posts .tags, #posts .notes, .search-wrapper form, #pagination ul,#posts li.post:after{width:60%;}
+				#posts li.post:after {left:20%;}
 				#posts .details{width:20%;}
 			}
 			
 			@media screen and (min-width: 80em){
-				#posts .post .content,#posts .tags, #posts .notes, .search-wrapper form, #pagination ul,#posts li.post:before{width:50%;}
-				#posts li.post:before {left:25%;}
+				#posts .post .content,#posts .tags, #posts .notes, .search-wrapper form, #pagination ul,#posts li.post:after{width:50%;}
+				#posts li.post:after {left:25%;}
 				#posts .details{width:25%;}
 				#posts .details li a span{opacity:1;}
 			}
@@ -394,21 +410,25 @@
 				
 				<ol id="posts" class="hfeed">
 				
-				    <li class="dot"><section class="content">·</section></li>
-				    
+					<li class="dot"><section class="content">·</section></li>
+					
 				{block:NoSearchResults}
 					<li class="hentry post">
+						<span class="top-line">&nbsp;</span>
 						<section class="content">
 							<h1>Erk! Nothing Found There.</h1>
 						</section>
+						<span class="bottom-line">&nbsp;</span>
 					</li>
 				{/block:NoSearchResults}
 				
 				{block:Posts}
 					<li class="hentry post {PostType}" id="{PostID}">
+						<span class="top-line">&nbsp;</span>
+						
 						{block:Quote}
 						<section class="content">
-							<h1>{Quote}</h1>
+							<blockquote><p>{Quote}</p></blockquote>
 							{block:Source}
 							<p>{Source}</p>
 							{/block:Source}
@@ -418,8 +438,10 @@
 						
 						{block:Photo}
 						<a href="{Permalink}" title="{PhotoAlt}" class="view" rel="{PostID}">
-							<img src="{block:HighRes}{PhotoURL-HighRes}{/block:HighRes}" alt="{PhotoAlt}">
+							{block:HighRes}<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">{/block:HighRes}
+							{block:HighRes}<!--{/block:HighRes}<img src="{PhotoURL-500}" alt="{PhotoAlt}">{block:HighRes}-->{/block:HighRes}
 						</a>
+						
 						<section class="content">
 						{block:Caption}
 							{Caption}
@@ -481,16 +503,16 @@
 						
 						{block:Audio}
 						<section class="content">
-						    {block:TrackName}
-						    <!--<h1><a href="{ExternalAudioURL">{TrackName}</a>{block:Artist} by {Artist}{/block:Artist}</h1>-->
-						    {/block:TrackName}
-						    
+							{block:TrackName}
+							<!--<h1><a href="{ExternalAudioURL">{TrackName}</a>{block:Artist} by {Artist}{/block:Artist}</h1>-->
+							{/block:TrackName}
+							
 							{block:AlbumArt}
 							<img src="{AlbumArtURL}">
 							{/block:AlbumArt}
 							
 							{block:AudioPlayer}
-							{AudioPlayerGrey}
+							<div class="audio" id={PostID}>{AudioPlayerGrey}
 							{/block:AudioPlayer}
 							
 							{block:AudioEmbed}
@@ -515,18 +537,18 @@
 							
 							{block:IfShowPostDate}
 							{block:Date}
-							<li class="postdate"><a href="{Permalink}" class="permalink date">{block:Date}<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}Z">{TimeAgo}</time>{/block:Date}</a></li>
+							<li class="postdate"><a href="{Permalink}" class="permalink date">{block:Date}<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}Z" data-timeago="{TimeAgo}">{TimeAgo}</time>{/block:Date}</a></li>
 							{/block:Date}
 							{/block:IfShowPostDate}
 						</ul>
 
 						
 						<ul class="tags">
-						    {block:IfShowLikePost}
-						    <li class="action"><a class="like" data-id="{PostID}" href="#"><span>Like</span></a></li>
-						    {/block:IfShowLikePost}
-						    
-						    {block:IfShowReblogPost}
+							{block:IfShowLikePost}
+							<li class="action"><a class="like" data-id="{PostID}" href="#"><span>Like</span></a></li>
+							{/block:IfShowLikePost}
+							
+							{block:IfShowReblogPost}
 							<li class="action"><a class="reblog" data-id="{PostID}" href="{ReblogURL}"><span>Reblog</span></a></li>
 							{/block:IfShowReblogPost}
 
@@ -544,11 +566,10 @@
 							
 							{block:HasTags}
 							{block:Tags}
-							<li class="tag"><a href="{TagURL}" title="{lang:Tagged with} {Tag}"><span>{Tag}</span></a></li>
+							<li class="tag"><a href="{TagURL}"><span>{Tag}</span></a></li>
 							{/block:Tags}
 							{/block:HasTags}
 						</ul>
-						
 						
 						
 						{block:IfShowPostNotes}
@@ -562,11 +583,14 @@
 							{/block:Permalink}
 						{/block:IfShowPostNotes}
 					
-					
+						{block:PermalinkPage}<span class="bottom-line">&nbsp;</span>{/block:PermalinkPage}
 					</li>
 				{/block:Posts}
 				
-				    <li class="dot" id="end-dot"><section class="content">·<ul class="details"></ul></section></li>
+					<li class="dot" id="end-dot">
+						<span class="top-line">&nbsp;</span>
+						<section class="content">·<ul class="details"></ul></section>
+					</li>
 				
 				{block:Pagination}
 					<li id="pagination">
@@ -587,8 +611,11 @@
 				{/block:Pagination}
 					
 				</ol>
-
 				
+				<footer>
+					<a href="#">Skip To Previous Posts</a>
+				</footer>
+
 			</article>
 				
 			<aside>
@@ -596,16 +623,16 @@
 				<section class="description vcard">
 					<p class="logo-wrapper"><img id="logo" src="{text:Logo URL}"></p>
 					<h1><a href="{text:Base URL}" rel="home" class="url">RAMBLINGS & NOISE</a></h1>
-					<p>A blog and a lifestream by<br><span class="uid fn name">{text:Author}</span>.</p>
+					<p>Blog, activitystream and<br>sketchbook<br>by <span class="uid fn name">{text:Author}</span>.</p>
 
-					<p>You can contact me by <a href="mailto:{text:Email Address}" title="email" class="email" title="{text:Email Address}">email</a> or maybe just <a href="{text:Base URL}ask/">ask a question</a>.</p>
+					<p>You can contact me by<br><a href="mailto:{text:Email Address}" class="email" title="{text:Email Address}">email</a> or just <a href="{text:Base URL}ask/">ask a question</a>.</p>
 				</section>
 				
 				<section class="pages" id="section_nav">
 					<h3>Sections</h3>
 					<ul>
-						<li><a rel="me" href="http://ramblings.jamestindall.info/" class="icons {text:Blog Current}"><span>/</span> Blog</a></li>
-						<li><a rel="me" href="http://noise.jamestindall.info/" class="icons {text:Lifestream Current}"><span>7</span> Lifestream</a></li>
+						<li><a rel="me" href="http://ramblings.jamestindall.info/" class="icons {text:Blog Current}" data-label="Blog"><span>/</span> Ramblings</a></li>
+						<li><a rel="me" href="http://noise.jamestindall.info/" class="icons {text:Lifestream Current}" data-label="Lifestream"><span>7</span> Noise</a></li>
 					</ul>
 				</section>
 				
@@ -639,7 +666,7 @@
 				</section>
 				
 				<section class="pages">
-					<p class="license small"><a rel="external license" class="icons" href="http://creativecommons.org/licenses/by-sa/3.0/"><span>c</span></a> Attribution & Share Alike License</p>
+					<p class="license small">Attribution & Share Alike License<a rel="external license" class="icons" href="http://creativecommons.org/licenses/by-sa/3.0/"><span>c</span></a></p>
 				</section>
 
 			</aside>
@@ -662,7 +689,7 @@
 	*/
 	
 	jt = {};
-	jt.debugging = true;
+	jt.debugging = false;
 	jt.baseURL = '{text:Base URL}';
 	
 	{block:IfGoogleAnalyticsID}
@@ -705,11 +732,36 @@
 		}
 	}
 	{/block:IfShowReadLater}
+	
+	jt.clearMyTestLikes = function clearMyTestLikes(){
+		debug('clearing likes');
+		$('.note .action a:first-child').each(function(index){
+			if($(this).parent().text().indexOf(' posted ') === -1){
+				debug($(this).html());
+				if($(this).html() == 'atomless') {
+					$(this).parents('.note').remove();
+				}
+			}
+		});	
+	};
+	
+	jt.checkMouseWithinElementBounds = function checkMouseWithinElementBounds(element, mouse_x, mouse_y){
+		var offset = $(element).offset(), bounds = {'t':offset.top, 'r':offset.left + $(element).width(), 'b':offset.top + $(element).height(), 'l':offset.left};
+		return (mouse_x >= bounds.l && mouse_x <= bounds.r && mouse_y >= bounds.t && mouse_y <= bounds.b);
+	};
+	
 	/*===========================
 	DYNAMIC LAYOUT
 	=============================*/
 	
 	jt.repositionLayout = function(e){
+		
+		$.each($('body > section .content a'), function(index, value){
+			var s = $(value).html();
+			if(typeof s.html === 'function'){
+				$(value).html(s.substr(0,30) + ' ...');
+			}
+		});
 		
 		var section_offset = $('body > section').offset(),
 			section_r = (section_offset.left + $('body > section').width()),
@@ -717,7 +769,7 @@
 			h = $(window).height()-80;
 			
 		if($(window).width() >= 1440){
-			r = 40;//
+			r = 40;
 		}else{
 			r = Math.max(0, ($(window).width() - (section_r + 2)));
 		}
@@ -732,8 +784,21 @@
 			fwch = Math.floor(fwcw / 1.77777777777778);
 		$('.fluid-width-video-wrapper iframe').width(fwcw);
 		$('.fluid-width-video-wrapper iframe').height(fwch);
+		$.each($('.fluid-width-video-wrapper iframe'), function(index, value) {
+			if(typeof $(value).attr === 'function'){
+				if($(value).attr('src').indexOf('soundcloud.com') !== -1) {
+					debug($(value).attr);
+					$(value).height(166).attr('height','166');
+				}
+			}
+		});
 		
 		$('body > section > article > header').css({'width':fwcw+2,'position':'fixed','top':'0em','left':section_offset.left});
+		
+		var line_width = $(window).width() - 2,
+			offset_left = section_offset.left * -1;
+		$('.post .top-line, .post .bottom-line, #end-dot .top-line').css({'width':line_width, 'margin-left':offset_left});
+
 	};
 	
 	/*===========================
@@ -774,11 +839,11 @@
 	};
 
 	jt.nfscrl.appendNewPosts = function appendNewPosts(data){
-		var p,post,
+		var p,post,ap,
 			new_posts = $(data).find('.post'),
 			frag = document.createDocumentFragment();
 
-		$.each(new_posts, function(index, value) { 
+		$.each(new_posts, function(index, value){ 
 			frag.appendChild(value);
 		});
 
@@ -901,6 +966,10 @@
 	.script("http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js").wait(
 		function pageInit() {
 		
+			if($('.page-permalink').length) {
+				jt.clearMyTestLikes();
+			}
+		
 			jt.repositionLayout();
 			
 			$(window).resize(jt.repositionLayout);
@@ -911,7 +980,6 @@
 				'.like', 
 				function (e){
 					e.preventDefault();
-					
 					var command = $(this).hasClass('liked')? 'unlike' : 'like',
 						post = $(this).closest('.post'),
 						oauth = post.find('.reblog').attr('href').slice(-8),
@@ -934,33 +1002,69 @@
 			
 			$('#posts').on(
 				'mouseenter',
-				'.post',
+				'.post,time',
 				function(e){
-					$('.tags', this).stop(true, false).animate({
-						opacity: 1,
-						height: '1.75em',
-						marginBottom: '1.4em',
-						paddingTop: '1em'
-					}, 'fast', function(){
-						// Animation complete.
-						$(this).css('overflow','visible');
-					});
+					switch(e.target.tagName){
+					case 'LI':
+						$(this).addClass('expanded');
+						$('.tags', this).stop(true, false).animate({
+							opacity: 1,
+							height: '1.75em',
+							marginTop: '2em',
+							marginBottom: '1.4em',
+							paddingTop: '0.5em',
+							paddingBottom: '0.5em'
+						}, 'fast', function(){
+							// Animation complete.
+							$(this).css('overflow','visible');
+						});
+					break;
+					case 'TIME':
+						$(this).html($(this).attr('datetime'));
+					break;
+					}
 				}
 			);
 			
 			$('#posts').on(
 				'mouseleave',
+				'.post,time',
+				function(e){
+					switch(e.target.tagName){
+					case "LI":
+						$(this).removeClass('expanded');
+						$('.tags', this).stop(true, false).animate({
+							opacity: 0,
+							height: 0,
+							marginTop: 0,
+							marginBottom: 0,
+							paddingTop: 0,
+							paddingBottom: 0
+						}, 'slow', function(){
+							// Animation complete.
+							$(this).css('overflow','hidden');
+						});
+					break;
+					case "TIME":
+						$(this).html($(this).attr('data-timeago'));
+					break;
+					}
+				}
+			);
+			
+			$('body').on(
+				'mousemove',
 				'.post',
 				function(e){
-					$('.tags', this).stop(true, false).animate({
-						opacity: 0,
-						height: 0,
-						marginBottom: 0,
-						paddingTop: 0
-					}, 'slow', function(){
-						// Animation complete.
-						$(this).css('overflow','hidden');
-					});
+					// close any expanded posts that have failed to close on mouseleave
+					$('li.expanded').filter(function(index){
+						return (jt.checkMouseWithinElementBounds(this, e.pageX, e.pageY) === false);
+					}).trigger('mouseleave');
+					// expand post mouse currently within if the mouseenter event failed to trigger and so is not yet expanded
+					if ( ! $(this).hasClass('expanded')){
+						debug('triggering mouseenter');
+						$(this).trigger('mouseenter');
+					}
 				}
 			);
 			
@@ -968,10 +1072,10 @@
 				'search',
 				'form',
 				function(e){
-				    debug(e);
-				    location.href= jt.baseURL;
+					debug(e);
+					location.href= jt.baseURL;
 				}
-            );
+			);
 			
 			{block:IfShowReadLater}
 			$('#posts').on(
@@ -986,7 +1090,7 @@
 			
 			if($('#ask_form').length) {
 				debug('found ask form');
-				$('.details').css('display','none');
+				$('.tags').css('display','none');
 				$('#section_nav .current').removeClass('current');
 			}
 			
